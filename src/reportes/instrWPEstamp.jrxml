@@ -1,0 +1,175 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="cd7cf4f6-a99c-48b2-b62d-689f09b41bb8">
+	<property name="ireport.zoom" value="1.9277164471476669"/>
+	<property name="ireport.x" value="177"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ordProd" class="java.lang.Integer"/>
+	<queryString>
+		<![CDATA[select
+	MODELO,
+	DESCRIPCION,
+	DESTINO,
+	TO_CHAR(fecha_prod,'dd/mm/yyyy') as sdate
+from TX_MMAESTRO
+WHERE ID=$P{ordProd} ORDER BY ID ASC]]>
+	</queryString>
+	<field name="modelo" class="java.lang.String"/>
+	<field name="descripcion" class="java.lang.String"/>
+	<field name="destino" class="java.lang.String"/>
+	<field name="sdate" class="java.lang.String"/>
+	<pageHeader>
+		<band height="61">
+			<image>
+				<reportElement x="0" y="0" width="99" height="59" uuid="aff0f0a4-1082-4047-9d09-2085a9ead5a4"/>
+				<imageExpression><![CDATA["C:\\Tuxedo\\rep\\honda-motocycle-logo.JPG"]]></imageExpression>
+			</image>
+			<staticText>
+				<reportElement x="100" y="15" width="244" height="17" uuid="a372d230-0b9f-44de-afa3-4ddd25bea82f"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="12" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Control de Produccion Motos]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="26" width="244" height="20" forecolor="#999999" uuid="b8d1bab7-04c3-4def-ab6e-878eea3db817"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Instrucción de Estampado para Soldadura]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="100" y="0" width="244" height="20" uuid="30ab29cc-a6e0-436b-85a0-9566bc3584ca"/>
+				<textElement verticalAlignment="Middle">
+					<font fontName="Arial Black" size="13" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Honda de Mexico S.A. de C.V.]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="99" y="39" width="37" height="20" forecolor="#666666" uuid="4e5b1258-5a24-4197-815c-b1fc70f490af"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Modelo:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="187" y="39" width="56" height="20" forecolor="#666666" uuid="3593f9a7-3ec7-4937-9fe6-d5136a6a5108"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Descripción:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="308" y="39" width="36" height="20" forecolor="#666666" uuid="9f720134-9058-4e0e-a086-1acbbfb04085"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Destino:]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="398" y="46" width="86" height="13" forecolor="#666666" uuid="4a074501-0094-4319-b2d0-964e00a6c020"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="9" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Fecha Produccion:]]></text>
+			</staticText>
+			<textField>
+				<reportElement x="136" y="39" width="51" height="20" uuid="90134bb2-f078-4fcd-9eb1-363fffa5f6cf"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{modelo}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="244" y="39" width="64" height="20" uuid="9db7eea5-cf3c-4aad-83f4-6de2668c3bdd"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{descripcion}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="344" y="46" width="54" height="13" uuid="359645fd-7126-4881-96ed-a23d2366ac43"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{destino}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="484" y="46" width="88" height="13" uuid="5786275c-242f-418c-adcc-0f00eaea3595"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{sdate}]]></textFieldExpression>
+			</textField>
+			<rectangle radius="3">
+				<reportElement x="371" y="0" width="183" height="39" uuid="ceda2d3f-2db5-41f7-b2f7-2802e52ac14b"/>
+			</rectangle>
+			<line>
+				<reportElement x="493" y="0" width="1" height="38" uuid="7a562e56-8048-42fd-9dbf-b0ca67353c34"/>
+			</line>
+			<rectangle radius="3">
+				<reportElement x="371" y="0" width="183" height="11" forecolor="#000000" backcolor="#333333" uuid="25564e85-9051-4171-b5f3-11aed5f8e96d"/>
+			</rectangle>
+			<line>
+				<reportElement x="434" y="0" width="1" height="38" uuid="86813afc-1474-4a9d-bfa2-d7a9d674cdb3"/>
+			</line>
+			<staticText>
+				<reportElement x="371" y="0" width="63" height="12" forecolor="#FFFFFF" uuid="bf4df9dd-6f90-4002-899e-8ce22549c392"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Elabora]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="434" y="0" width="59" height="12" forecolor="#FFFFFF" uuid="3369e42d-b551-4f9d-9450-1f4681ca1bb4"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Revisa]]></text>
+			</staticText>
+			<staticText>
+				<reportElement x="493" y="0" width="61" height="12" forecolor="#FFFFFF" uuid="b2e1eac3-57f8-443b-a6b7-28d98d676f63"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Century Gothic" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Autoriza]]></text>
+			</staticText>
+		</band>
+	</pageHeader>
+	<detail>
+		<band height="68" splitType="Stretch">
+			<subreport>
+				<reportElement x="0" y="0" width="572" height="68" uuid="dab74f11-9f82-4a75-846d-e7c398da3ab9"/>
+				<subreportParameter name="ORDEN">
+					<subreportParameterExpression><![CDATA[$P{ordProd}]]></subreportParameterExpression>
+				</subreportParameter>
+				<connectionExpression><![CDATA[$P{REPORT_CONNECTION}]]></connectionExpression>
+				<subreportExpression><![CDATA["C:\\Tuxedo\\rep\\barcode.jasper"]]></subreportExpression>
+			</subreport>
+		</band>
+	</detail>
+	<pageFooter>
+		<band height="15">
+			<staticText>
+				<reportElement x="0" y="0" width="572" height="15" uuid="83cd8785-6115-4f0a-b791-16fef50b7981"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="8" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Formato No. 2 520 1003 0	REV. No. 2	PERIODO DE RETENCION: 10 AÑOS]]></text>
+			</staticText>
+			<textField evaluationTime="Report">
+				<reportElement x="531" y="0" width="40" height="15" uuid="cabf4471-71f3-4787-afd0-dd6799968d0b"/>
+				<textElement verticalAlignment="Bottom">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA[" " + $V{PAGE_NUMBER}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="381" y="0" width="150" height="15" uuid="5f590e30-ae9f-42b5-b19c-00064e27cdca"/>
+				<textElement textAlignment="Right" verticalAlignment="Bottom">
+					<font fontName="Arial" size="8"/>
+				</textElement>
+				<textFieldExpression><![CDATA["PAG. No. "+$V{PAGE_NUMBER}+" / "]]></textFieldExpression>
+			</textField>
+		</band>
+	</pageFooter>
+</jasperReport>

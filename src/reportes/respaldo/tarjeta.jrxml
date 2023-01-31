@@ -1,0 +1,70 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="8518b14a-341c-444a-8825-4bc555dc96b7">
+	<property name="ireport.zoom" value="1.3660269107301415"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="VIN" class="java.lang.String"/>
+	<queryString>
+		<![CDATA[select mod_desc, anio, '*'||vin||'*', VIN, destino, col_desc, motor from TX_ORDEN_PROD where VIN=$P{VIN}]]>
+	</queryString>
+	<field name="MOD_DESC" class="java.lang.String"/>
+	<field name="ANIO" class="java.math.BigDecimal"/>
+	<field name="&apos;*&apos;||VIN||&apos;*&apos;" class="java.lang.String"/>
+	<field name="VIN" class="java.lang.String"/>
+	<field name="DESTINO" class="java.lang.String"/>
+	<field name="COL_DESC" class="java.lang.String"/>
+	<field name="MOTOR" class="java.lang.String"/>
+	<detail>
+		<band height="752" splitType="Stretch">
+			<textField>
+				<reportElement uuid="86d0a248-47ad-4142-900a-99e83669a556" x="410" y="122" width="79" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MOD_DESC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="4da4eef2-0e4d-437f-b952-f8bbb2c82c32" x="532" y="120" width="25" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ANIO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="d8e90626-d6a9-4bf1-a7b2-cf8bb96a78fa" x="471" y="166" width="92" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="7"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESTINO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="cd2e197d-7b99-426d-85f8-8bb5fa87c28f" x="467" y="145" width="92" height="20"/>
+				<textElement textAlignment="Right">
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COL_DESC}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="6050ca7d-d1f7-4213-840e-d701190b86f8" x="300" y="122" width="100" height="20"/>
+				<textElement>
+					<font size="9"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MOTOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="54601ffc-fdcf-46cb-b8c4-2832ca114a5d" x="0" y="46" width="572" height="54"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom" rotation="None">
+					<font fontName="Free 3 of 9" size="37"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{'*'||VIN||'*'}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="29c11aad-6427-4184-a56b-9f7f549aefe3" x="0" y="123" width="283" height="39"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Century Gothic" size="19" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VIN}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>

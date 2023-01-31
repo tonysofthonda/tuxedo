@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="555" pageHeight="92" columnWidth="555" leftMargin="0" rightMargin="0" topMargin="0" bottomMargin="0" uuid="d534c57c-6d17-47f1-b534-e14d6dbbd6cf">
+	<property name="ireport.zoom" value="1.771561000000007"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="ORDEN" class="java.lang.Integer">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select '*'||vin||'*' as svin, vin from TX_ORDEN_PROD WHERE ID_ORDEN=$P{ORDEN} ORDER BY ID ASC]]>
+	</queryString>
+	<field name="svin" class="java.lang.String"/>
+	<field name="VIN" class="java.lang.String"/>
+	<detail>
+		<band height="91" splitType="Stretch">
+			<rectangle>
+				<reportElement uuid="68d0dcd2-510b-4779-87e4-bce42acfe8cd" x="0" y="46" width="83" height="45" forecolor="#666666"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="87d47f18-ab16-45d9-b428-36182bf370a9" x="0" y="2" width="83" height="42" forecolor="#666666"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="d049f468-8bb6-43ce-bafe-725feac838d5" x="83" y="2" width="472" height="42" forecolor="#666666"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="31b07d84-e719-4138-ac72-93ad10f00565" x="83" y="46" width="472" height="45" forecolor="#666666"/>
+				<graphicElement>
+					<pen lineWidth="1.25"/>
+				</graphicElement>
+			</rectangle>
+			<staticText>
+				<reportElement uuid="f7fb1337-41cc-4989-9387-18bc9f2974da" x="7" y="2" width="73" height="44" forecolor="#666666"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[No. Chasis: ]]></text>
+			</staticText>
+			<staticText>
+				<reportElement uuid="9607d93a-7bab-43bb-9940-1ce121d45ee8" x="4" y="46" width="76" height="45"/>
+				<textElement textAlignment="Right" verticalAlignment="Middle">
+					<font fontName="Arial" size="11" isBold="true"/>
+				</textElement>
+				<text><![CDATA[Estampado
+de Chasis: ]]></text>
+			</staticText>
+			<textField>
+				<reportElement uuid="9466a146-a1bf-4962-b239-ca181c1f0eae" x="83" y="2" width="330" height="19"/>
+				<textElement textAlignment="Center" verticalAlignment="Bottom">
+					<font fontName="Free 3 of 9" size="24"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{svin}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement uuid="2905fed5-1717-4526-b910-d6b37259b658" x="83" y="18" width="330" height="45"/>
+				<textElement textAlignment="Center" verticalAlignment="Top">
+					<font fontName="Arial" size="25" isStrikeThrough="false"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{VIN}]]></textFieldExpression>
+			</textField>
+			<rectangle>
+				<reportElement uuid="b64cd866-2d17-4b32-84b5-eba432f91847" x="484" y="2" width="71" height="42"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="1ee2bdf6-c39a-4048-b855-1e3607cb404c" x="413" y="2" width="71" height="42"/>
+			</rectangle>
+			<rectangle>
+				<reportElement uuid="4bc718c7-425d-4b0b-b0f1-92d930c26e26" x="484" y="46" width="71" height="45"/>
+			</rectangle>
+		</band>
+	</detail>
+</jasperReport>

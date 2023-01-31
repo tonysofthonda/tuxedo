@@ -1,0 +1,98 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<jasperReport xmlns="http://jasperreports.sourceforge.net/jasperreports" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:schemaLocation="http://jasperreports.sourceforge.net/jasperreports http://jasperreports.sourceforge.net/xsd/jasperreport.xsd" name="report name" pageWidth="612" pageHeight="792" columnWidth="572" leftMargin="20" rightMargin="20" topMargin="20" bottomMargin="20" uuid="7dd9e7a4-fa74-4457-853c-6531504d3431">
+	<property name="ireport.zoom" value="1.2100000000000006"/>
+	<property name="ireport.x" value="0"/>
+	<property name="ireport.y" value="0"/>
+	<parameter name="Orden" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<parameter name="Frame" class="java.lang.String">
+		<defaultValueExpression><![CDATA[]]></defaultValueExpression>
+	</parameter>
+	<queryString>
+		<![CDATA[select 
+	A.MODELO, 
+	A.TIPO||REPLACE(TO_CHAR(A.OPCION),'null', ' ') AS "TP", 
+	'*'||A.FRAME||'*' FRAME_CB, 
+	A.FRAME, 
+	'MX' AS "DESTINO", 
+	B.COLOR, 
+	A.ENGINE,
+          B.TMODELO
+    from 
+    WP_PRODUCCION A ,
+    WP_ORDEN_DETAIL B
+    where 
+        A.ORDEN=$P{Orden}and 
+        A.Frame=$P{Frame} and
+        A.ORDEN=B.ORDEN AND
+        A.MODELO=B.CODIGO_MODELO 
+        AND A.TIPO||REPLACE(TO_CHAR(A.OPCION),'null', '')=B.TIPO]]>
+	</queryString>
+	<field name="MODELO" class="java.lang.String"/>
+	<field name="TP" class="java.lang.String"/>
+	<field name="FRAME_CB" class="java.lang.String"/>
+	<field name="FRAME" class="java.lang.String"/>
+	<field name="DESTINO" class="java.lang.String"/>
+	<field name="COLOR" class="java.lang.String"/>
+	<field name="ENGINE" class="java.lang.String"/>
+	<field name="TMODELO" class="java.lang.String"/>
+	<detail>
+		<band height="752" splitType="Stretch">
+			<textField>
+				<reportElement x="524" y="98" width="49" height="20" uuid="0b33370a-997d-4954-873a-94bd14e11170"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TP}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="524" y="67" width="49" height="20" uuid="b80303d4-b802-4716-85d3-8ec1f1a5e9aa"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{TMODELO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="1" y="95" width="254" height="41" uuid="9cf6dee3-b19d-4e54-85f0-719e571df7ac"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font fontName="Free 3 of 9" size="36"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{FRAME_CB}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="72" y="119" width="100" height="20" uuid="34d0cd19-e93b-4916-8bfa-7d833cc811de"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle"/>
+				<textFieldExpression><![CDATA[$F{FRAME}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="213" y="131" width="100" height="20" uuid="2a8e85bd-607e-4bd9-8ee1-da95a8d09e0d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="10" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{ENGINE}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="158" width="68" height="20" uuid="d7c69d7a-8b21-41e6-9654-78691e9a409d"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{COLOR}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="456" y="98" width="68" height="20" uuid="062f5193-95a7-477a-8bcb-e31bb276b1d7"/>
+				<textElement textAlignment="Center" verticalAlignment="Middle">
+					<font size="8" isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{MODELO}]]></textFieldExpression>
+			</textField>
+			<textField>
+				<reportElement x="524" y="158" width="49" height="20" uuid="3d86b710-0a34-45c0-8282-36d044cf34f5"/>
+				<textElement verticalAlignment="Middle">
+					<font isBold="true"/>
+				</textElement>
+				<textFieldExpression><![CDATA[$F{DESTINO}]]></textFieldExpression>
+			</textField>
+		</band>
+	</detail>
+</jasperReport>
